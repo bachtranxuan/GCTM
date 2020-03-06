@@ -5,8 +5,8 @@ Data descriptions:
 *  Training file, we used the bag of words format.
 * Testing folder (E.g data).
 * Graph, we saved by format: node1 \tab node2 \tab weight.
-\
 
+\
 Requirements:
 * python 3.7.
 * pytorch 1.2.0
