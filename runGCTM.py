@@ -46,7 +46,7 @@ batch_size_test = test_part1.size()[0]
 adj, X = data_loader.load_data_gcn(path=args.folder,graph='edgesw')
 save_model = Save_Model(model_folder,args.top, vocab)
 
-print('Num topics: %d, Batchsize: %d, Sigma: %s, Iterate: %d\n Opt: %s, Lr: %s, Dropout: %s'%(args.num_topics, args.batch_size,args.sigma,args.iteration, args.opt, args.lr, args.dropout))
+print('Num topics: %d, Batchsize: %d, Sigma: %s, Iterate: %d\nOpt: %s, Lr: %s, Dropout: %s'%(args.num_topics, args.batch_size,args.sigma,args.iteration, args.opt, args.lr, args.dropout))
 gctm = modelGCTM.GCTM(V=V, num_topics=args.num_topics, alpha=args.alpha, sigma=args.sigma, batchsize=args.batch_size, iterate=args.iteration, hidden=args.hidden, nfeat=V, dropout=args.dropout)
 if args.opt =="adam":
     print("Adam")

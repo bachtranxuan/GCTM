@@ -7,11 +7,13 @@ def dirichlet_expectation(alpha):
     if len(alpha.shape) == 1:
         return (digamma(alpha)-digamma(sum(alpha)))
     return (digamma(alpha)-digamma(np.sum(alpha, axis=1))[:, np.newaxis])
+
 class Save_Model:
     def __init__(self, folder, num_top_words, vocab):
         self.model_folder = folder
         self.num_top_words = num_top_words
         self.vocab =vocab
+
     def get_top_word(self, beta):
         num_tops = beta.shape[0]
         list_tops = list()
@@ -24,6 +26,7 @@ class Save_Model:
                 arr[index] = -1.
             list_tops.append(top)
         return (list_tops)
+
     def write_top_word(self, beta):
         tops_words = self.get_top_word(beta)
         with open('%s/tops_words.txt'%self.model_folder, 'w') as fp:
@@ -31,6 +34,7 @@ class Save_Model:
                 for id in top_k:
                     fp.write('%s ' % (self.vocab[id]))
                 fp.write('\n')
+
     def write_beta(self, beta):
         K, V = beta.shape
         with open('%s/beta_final.dat' % (self.model_folder), 'w') as fp:
@@ -48,6 +52,7 @@ class Save_Model:
                 for id in top_k:
                     fp.write('%d ' % (id))
                 fp.write('\n')
+
 class Load_Data:
     def __init__(self, fp_train,  file_vocab, batch_size,  folder_test, num_tests):
         self.fp_train = fp_train
@@ -55,6 +60,7 @@ class Load_Data:
         self.num_tests = num_tests
         self.file_vocab = file_vocab
         self.batch_size = batch_size
+
     def read_vocab(self):
         vocab = {}
         with open(self.file_vocab, 'r') as fp:
@@ -67,6 +73,7 @@ class Load_Data:
                 index+=1
             self.V = index
         return vocab
+
     def load_data_gcn(self, path, graph):
         """Load citation network dataset (cora only for now)"""
 
@@ -88,7 +95,6 @@ class Load_Data:
 
         features = torch.FloatTensor(np.array(features.todense()))
         adj = self.sparse_mx_to_torch_sparse_tensor(adj)
-
         return adj, features
 
     def normalize(self, mx):
@@ -121,6 +127,7 @@ class Load_Data:
                 index+=1
             self.V = index
         return vocab
+
     def read_data_test(self):
         cnts1 = []
         cnts2 = []
@@ -150,6 +157,7 @@ class Load_Data:
         tensor_cnts1 = torch.stack([torch.tensor(x) for x in cnts1])
         tensor_cnts2 = torch.stack([torch.tensor(x) for x in cnts2])
         return (tensor_cnts1.to_sparse(), tensor_cnts2.to_sparse())
+
     def read_data_train_frequent(self):
         d = 0
         cnts = []
@@ -190,6 +198,7 @@ class Load_Data:
         tensor_cnts2 = torch.stack([torch.tensor(x) for x in cnts_part2])
         tensor_cnts = torch.stack([torch.tensor(x) for x in cnts])
         return (flagF,  tensor_cnts.to_sparse(), tensor_cnts1.to_sparse(), tensor_cnts2.to_sparse())
+
     def read_data_train_month(self):
         d = 0
         cnts = []
@@ -217,6 +226,7 @@ class Load_Data:
         print("Num doc per month %s: %d"%(check, d))
         tensor_cnts = torch.stack([torch.tensor(x) for x in cnts])
         return (flagF,  tensor_cnts.to_sparse())
+
     def read_data_test_month(self, month):
         cnts1 = []
         cnts2 = []
@@ -247,6 +257,7 @@ class Load_Data:
         tensor_cnts1 = torch.stack([torch.tensor(x) for x in cnts1])
         tensor_cnts2 = torch.stack([torch.tensor(x) for x in cnts2])
         return (tensor_cnts1.to_sparse(), tensor_cnts2.to_sparse(), d)
+
 class Evaluate():
     def __init__(self, beta, num_topics, alpha, batchsize, iterate):
         self.K = num_topics
@@ -254,9 +265,11 @@ class Evaluate():
         self.batchsize = batchsize
         self.beta = beta.clone().detach().numpy()
         self.iterate = iterate
+
     def computer_lpp(self, part1, part2):
         gamma = self.inference(part1)
         return self.LPP(gamma, part2)
+
     def inference(self, cnts):
         gamma = torch.ones(self.batchsize,self.K)*self.alpha + torch._sparse_sum(cnts,dim=1, dtype=torch.float32).to_dense().view(-1,1)/self.K
         gamma = gamma.numpy()
@@ -276,6 +289,7 @@ class Evaluate():
                 ExpElogthetad = np.exp(dirichlet_expectation(gammad))
             gamma[d] = gammad/sum(gammad)
         return gamma
+
     def LPP(self,  gamma, part2):
         lpp = 0.0
         for d in range(self.batchsize):
