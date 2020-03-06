@@ -52,10 +52,7 @@ class GCTM(nn.Module):
         return self.logsoftmax(beta)
 
     def forward(self, inputs, x, adj, weightgc1, weightgc2, betat):
-        print(self.rho)
-        print(self.betat)
         logbeta = self.computebeta(x,adj)
-        print(logbeta.size())
         (gamma, total_phi) = self.inference(logbeta, inputs)
         return (logbeta, total_phi)
 
