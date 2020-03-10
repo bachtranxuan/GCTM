@@ -4,7 +4,7 @@
 
 
 # GCTM
-This is an implementation of Graph Convolution Topic Model for Data Streams.
+This is an implementation of [Graph Convolution Topic Model for Data Streams](link).
 
 Some benefits of our model
 *	 GCTM exploits a knowledge graph, which comes from human knowledge or a pre-trained model, to enrich a topic model for data streams, especially in case of sparse or noisy data. We emphasize that our work first provides a way to model prior knowledge of graph form in a streaming environment
@@ -49,5 +49,10 @@ SVB ([Broderick et al., 2013](https://arxiv.org/pdf/1307.6769.pdf)), PVB ([McIne
 ## Citation
 if you find that TPS is useful for your research, please citing:
 ```
-cite
+@article{*,
+  title={Graph Convolution Topic Model for Data Streams},
+  author={*},
+  journal={arXiv preprint arXiv},
+  year={2020}
+}
 ```
