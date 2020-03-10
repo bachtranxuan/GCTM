@@ -45,7 +45,7 @@ We compare our model with three state-of-the-art base-lines:
 SVB ([Broderick et al., 2013](https://arxiv.org/pdf/1307.6769.pdf)), PVB ([McInerney et al.,  2015](https://arxiv.org/pdf/1507.05253.pdf)) and SVP-PP ([Masegosa et al., 2017](http://proceedings.mlr.press/v70/masegosa17a/masegosa17a.pdf)). Log predictive probability ([LPP](http://jmlr.org/papers/v14/hoffman13a.html))  and Normalized pointwise mutual information ([NPMI](https://www.aclweb.org/anthology/E14-1056/))
 ![Log predictive probability](./figures/perplexities.png)
 ![Normalized pointwise mutual information](./figures/npmi.png)
-``` 
+
 ## Citation
 if you find that TPS is useful for your research, please citing:
 ```
