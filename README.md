@@ -29,11 +29,11 @@ You can run with command
 Data for training consists of an external knowledge graph and a set of documents.
 *	In terms of knowledge graph, we experiment on both [WordNet](https://wordnet.princeton.edu/) and a pre-trained graph ([Word2vec](https://nlp.stanford.edu/projects/glove/)). For Wordnet, we use both synonym and antonym relationships between words to create edges and the weight of each edge is the Wu-Palmer similarity of the corresponding pair of words. For the pre-trained graph, we create a 200-nearest neighbour graph based on cosine similarity between Word2vec representations of words. The two graphs are saved in files: data/edgesw.txt and data/edges_knn200.txt respectively. Each line represents an edge and is of the form:
 ```
-vertex_id1 \tab vertex_id2 \tab weight 
+	vertex_id1 \tab vertex_id2 \tab weight 
 ```
 *	We use the bag-of-words model to represent documents. Each document is represented by a sparse vector of word counts. Data ís saved in a file (data/train.txt) in which each row is a document representation in form:
 ```
-[M] [term_id1]:[count] [term_id2]:[count] ... [term_idN]:[count]
+	[M] [term_id1]:[count] [term_id2]:[count] ... [term_idN]:[count]
 	where [M] is the total of unique terms and the [count] is the word counts of each corresponding term in the document.  We note that both vertex_id and term_id refer to word_id in the vocabulary (data/vocab.txt).
 ```
 
