@@ -23,7 +23,19 @@ This is an implementation of [Graph Convolution Topic Model](link) (GCTM) which 
 ## Training
 You can run with command
 ```
-	python runGCTM.py
+	python runGCTM.py \
+		--folder='data' \
+		--iteration=100 \
+		--num_topics=50 \
+		--batch_size=500 \
+		--opt='adam' \
+		--lr=0.01 \
+		--alpha=0.01 \
+		--sigma=1 \
+		--num_tests=1 \
+		--top=20 \
+		--hidden=200 \
+		--dropout=0
 ```
 ## Data descriptions
 Data for training consists of an external knowledge graph and a set of documents.
