@@ -9,7 +9,7 @@ torch.set_num_threads(2)
 
 # Training settings
 parser = argparse.ArgumentParser()
-parser.add_argument('--folder', type=str, default='../TMN', help='Data folder.')
+parser.add_argument('--folder', type=str, default='data', help='Data folder.')
 parser.add_argument('--iteration', type=int, default=100,
                     help='Number of loop inference for each mini-batch.')
 parser.add_argument('--num_topics', type=int, default=50,
@@ -24,7 +24,7 @@ parser.add_argument('--alpha', type=float, default=0.01,
                     help='Hyperparameter of LDA.')
 parser.add_argument('--sigma', type=float, default=1,
                     help='Initial sigma.')
-parser.add_argument('--num_tests', type=float, default=5,
+parser.add_argument('--num_tests', type=float, default=1,
                     help='Number of test files.')
 parser.add_argument('--top', type=float, default=10,
                     help='Number of top words in each topic.')
