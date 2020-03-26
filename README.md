@@ -63,9 +63,9 @@ SVB ([Broderick et al., 2013](https://arxiv.org/pdf/1307.6769.pdf)), PVB ([McIne
 ## Citation
 if you find that TPS is useful for your research, please citing:
 ```
-@misc{van2020graph,
+@misc{linh2020graph,
     title={Graph Convolutional Topic Model for Data Streams},
-    author={Linh Ngo Van and Bach Tran and Khoat Than},
+    author={Ngo Van Linh and Tran Xuan Bach and Khoat Than},
     year={2020},
     eprint={2003.06112},
     archivePrefix={arXiv},
