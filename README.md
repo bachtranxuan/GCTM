@@ -21,7 +21,7 @@ This is an implementation of [Graph Convolution Topic Model](https://arxiv.org/a
 		Numpy, Scipy
 ```
 ## Training
-You can run with command
+You can run with command (Code is going to update very soon)
 ```
 	python runGCTM.py \
 		--folder='data' \
