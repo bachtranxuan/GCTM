@@ -18,7 +18,7 @@ parser.add_argument('--batch_size', type=int, default=500,
                     help='Number of documents in each mini-batch.')
 parser.add_argument('--opt', type=str, default='adam',
                     help='Method optimize')
-parser.add_argument('--lr', type=float, default=0.01,
+parser.add_argument('--lr', type=float, default=0.1,
                     help='Initial learning rate.')
 parser.add_argument('--alpha', type=float, default=0.01,
                     help='Hyperparameter of LDA.')
