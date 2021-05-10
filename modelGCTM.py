@@ -71,8 +71,8 @@ class GCTM(nn.Module):
             betatd = betat[ids,:]
             for i in range(self.iterate):
                 # We update local parameter phi and gamma as in Latent Dirichlet Allocation [Blei et al. (2003).]
-                phi = ExpElogthetad*betatd +1e-10
-                phi /=np.sum(phi,axis=1)[:,np.newaxis]
+                phi = ExpElogthetad*betatd
+                phi /=np.sum(phi,axis=1)[:,np.newaxis]+1e-100
                 gammad = self.alpha + np.dot(count,phi)
                 ExpElogthetad = np.exp(dirichlet_expectation(gammad))
             gamma[d] = gammad
