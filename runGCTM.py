@@ -24,9 +24,9 @@ parser.add_argument('--alpha', type=float, default=0.01,
                     help='Hyperparameter of LDA.')
 parser.add_argument('--sigma', type=float, default=1,
                     help='Initial sigma.')
-parser.add_argument('--num_tests', type=float, default=1,
+parser.add_argument('--num_tests', type=int, default=1,
                     help='Number of test files.')
-parser.add_argument('--top', type=float, default=10,
+parser.add_argument('--top', type=int, default=10,
                     help='Number of top words in each topic.')
 parser.add_argument('--hidden', type=int, default=200,
                     help='Number of hidden units.')
