@@ -4,7 +4,7 @@
 
 
 # GCTM
-This is an implementation of [Graph Convolution Topic Model](https://arxiv.org/abs/2003.06112) (GCTM) which exploits an external knowledge graph in a streaming environment. In this work, we use graph convolutional networks (GCN) to embed the knowledge graph in topic space. We also develop a method to learn GCTM in data streams. Some benefits of GCTM are follows:
+This is an implementation of [Graph Convolution Topic Model](https://dl.acm.org/doi/abs/10.1016/j.neucom.2021.10.047) (GCTM) which exploits an external knowledge graph in a streaming environment. In this work, we use graph convolutional networks (GCN) to embed the knowledge graph in topic space. We also develop a method to learn GCTM in data streams. Some benefits of GCTM are follows:
 
 *	GCTM exploits a knowledge graph, which is derived from human knowledge or a pre-trained model, to enrich a topic model for data streams, especially in case of sparse or noisy data. We emphasize that our work first provides a way to model prior knowledge of graph form in a streaming environment
 *	We also propose an automatic mechanism to balance between the prior knowledge and old knowledge learnt in the previous minibatch. This mechanism can automatically control the impact of the prior knowledge in each minibatch. When concept drift happens, it can automatically decrease the influence of the old knowledge but increase the influence of the prior knowledge to help GCTM deal well with the concept drift.
