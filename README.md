@@ -63,12 +63,13 @@ SVB ([Broderick et al., 2013](https://arxiv.org/pdf/1307.6769.pdf)), PVB ([McIne
 ## Citation
 if you find that TPS is useful for your research, please citing:
 ```
-@misc{linh2020graph,
-    title={Graph Convolutional Topic Model for Data Streams},
-    author={Ngo Van Linh and Tran Xuan Bach and Khoat Than},
-    year={2020},
-    eprint={2003.06112},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+@article{van2022graph,
+  title={A graph convolutional topic model for short and noisy text streams},
+  author={Van Linh, Ngo and Bach, Tran Xuan and Than, Khoat},
+  journal={Neurocomputing},
+  volume={468},
+  pages={345--359},
+  year={2022},
+  publisher={Elsevier}
 }
 ```
